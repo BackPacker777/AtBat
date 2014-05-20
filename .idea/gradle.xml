@@ -3,12 +3,13 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="A:/sdk/gradle-1.11" />
         <option name="modules">
           <set>
-            <option value="C:\PROGRAMMING\DroidSandbox\AtBat" />
-            <option value="C:\PROGRAMMING\DroidSandbox\AtBat\attbat" />
+            <option value="A:\SANDBOX\Droid\AtBat" />
+            <option value="A:\SANDBOX\Droid\AtBat\attbat" />
           </set>
         </option>
       </GradleProjectSettings>

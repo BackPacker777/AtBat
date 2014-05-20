@@ -11,8 +11,9 @@
         tools:ignore="HardcodedDebugMode">
 
         <activity
-            android:name="org.howardbates.atbat.LayoutMainActivity"
-            android:label="@string/app_name" >
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+	       android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
