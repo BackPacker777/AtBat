@@ -284,7 +284,6 @@
 		android:layout_below="@+id/button5"
 		android:layout_alignLeft="@+id/button5"
 		android:layout_alignStart="@+id/baseButton"
-		android:textStyle="bold"
 		android:textSize="20sp"
 		android:onClick="baseButtonClick"/>
 
