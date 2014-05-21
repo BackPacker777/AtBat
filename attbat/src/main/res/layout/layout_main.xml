@@ -23,9 +23,10 @@
 		android:id="@+id/button"
 		android:typeface="monospace"
 		android:textSize="20sp"
-		android:layout_alignTop="@+id/textView"
-		android:layout_toLeftOf="@+id/strikeText"
-		android:onClick="strikeButtonClick"/>
+		android:onClick="strikeButtonClick"
+		android:layout_alignParentTop="true"
+		android:layout_marginBottom="20dp"
+		android:layout_toLeftOf="@+id/strikeText"/>
 
 	<Button
 		style="?android:attr/buttonStyleSmall"
@@ -38,6 +39,7 @@
 		android:layout_alignStart="@+id/button"
 		android:typeface="monospace"
 		android:textSize="20sp"
+		android:layout_marginBottom="20dp"
 		android:onClick="ballButtonClick"/>
 
 	<Button
@@ -51,6 +53,7 @@
 		android:layout_alignStart="@+id/button2"
 		android:typeface="monospace"
 		android:textSize="20sp"
+		android:layout_marginBottom="20dp"
 		android:onClick="foulButtonClick"/>
 
 	<TextView
@@ -67,6 +70,7 @@
 		android:text="@string/zero"
 		android:textSize="28sp"
 		android:clickable="true"
+		android:layout_marginBottom="20dp"
 		android:onClick="undoStrikeButtonClick"/>
 
 	<TextView
@@ -82,22 +86,22 @@
 		android:textSize="28sp"
 		android:gravity="center_vertical|center_horizontal"
 		android:clickable="true"
+		android:layout_marginBottom="20dp"
 		android:onClick="undoBallButtonClick"/>
 
 	<TextView
 		android:layout_width="60dp"
 		android:layout_height="50dp"
 		android:id="@+id/foulText"
-		android:layout_alignBottom="@+id/button3"
-		android:layout_alignParentRight="true"
-		android:layout_alignParentEnd="true"
 		android:textStyle="bold"
 		android:typeface="monospace"
 		android:text="@string/zero"
 		android:textSize="28sp"
 		android:gravity="center_vertical|center_horizontal"
 		android:clickable="true"
-		android:onClick="undoFoulButtonClick"/>
+		android:onClick="undoFoulButtonClick"
+		android:layout_below="@+id/button2"
+		android:layout_toRightOf="@+id/button5"/>
 
 	<TextView
 		android:layout_width="75dp"
@@ -109,7 +113,7 @@
 		android:textSize="16sp"
 		android:typeface="monospace"
 		android:layout_alignTop="@+id/inningPart"
-		android:layout_toLeftOf="@+id/inningPart"/>
+		android:layout_toRightOf="@+id/textView"/>
 
 	<Button
 		style="?android:attr/buttonStyleSmall"
@@ -122,6 +126,7 @@
 		android:layout_alignLeft="@+id/button3"
 		android:layout_alignStart="@+id/button3"
 		android:textSize="20sp"
+		android:layout_marginBottom="20dp"
 		android:onClick="outButtonClick"/>
 
 	<TextView
@@ -133,10 +138,11 @@
 		android:text="@string/zero"
 		android:textSize="28sp"
 		android:gravity="center_vertical|center_horizontal"
-		android:layout_below="@+id/button4"
-		android:layout_toRightOf="@+id/button5"
 		android:clickable="true"
-		android:onClick="undoRunButtonClick"/>
+		android:onClick="undoRunButtonClick"
+		android:layout_alignTop="@+id/button5"
+		android:layout_alignRight="@+id/opponentTeamName"
+		android:layout_alignEnd="@+id/opponentTeamName"/>
 
 	<Button
 		style="?android:attr/buttonStyleSmall"
@@ -145,11 +151,11 @@
 		android:text="@string/runsButton"
 		android:id="@+id/button5"
 		android:typeface="monospace"
-		android:layout_below="@+id/button4"
-		android:layout_alignLeft="@+id/button4"
-		android:layout_alignStart="@+id/button4"
 		android:textSize="20sp"
-		android:onClick="runButtonClick"/>
+		android:onClick="runButtonClick"
+		android:layout_below="@+id/button4"
+		android:layout_marginBottom="20dp"
+		android:layout_toLeftOf="@+id/runText"/>
 
 	<TextView
 		android:layout_width="60dp"
@@ -170,8 +176,8 @@
 		android:layout_height="50dp"
 		android:id="@+id/inningPart"
 		android:contentDescription="@string/topOrBottom"
-		android:layout_above="@+id/textView9"
-		android:layout_toLeftOf="@+id/inningText"/>
+		android:layout_alignTop="@+id/inningText"
+		android:layout_toRightOf="@+id/textView5"/>
 
 	<TextView
 		android:layout_width="40dp"
@@ -183,17 +189,16 @@
 		android:id="@+id/inningText"
 		android:gravity="center_vertical|center_horizontal"
 		android:layout_above="@+id/textView9"
-		android:layout_alignRight="@+id/textView9"
-		android:layout_alignEnd="@+id/textView9"/>
+		android:layout_toRightOf="@+id/inningPart"/>
 
 	<TextView
 		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
+		android:layout_height="32dp"
 		android:text="@string/scoreLabel"
 		android:id="@+id/textView9"
 		android:gravity="center_vertical|center_horizontal"
 		android:textStyle="bold"
-		android:textSize="30sp"
+		android:textSize="26sp"
 		android:typeface="monospace"
 		android:background="#5795a4"
 		android:layout_above="@+id/ourTeamName"
@@ -257,7 +262,7 @@
 		android:entries="@array/players"
 		android:prompt="@string/spinnerLabel"
 		android:id="@+id/spinner"
-		android:layout_above="@+id/button5"
+		android:layout_below="@+id/textView14"
 		android:layout_alignParentLeft="true"
 		android:layout_alignParentStart="true"/>
 
@@ -270,7 +275,9 @@
 		android:textStyle="bold"
 		android:typeface="monospace"
 		android:textSize="14sp"
-		android:layout_above="@+id/button4"
+		android:layout_below="@+id/radioSide"
+		android:layout_alignRight="@+id/spinner"
+		android:layout_alignEnd="@+id/spinner"
 		android:layout_alignParentLeft="true"
 		android:layout_alignParentStart="true"/>
 
@@ -281,11 +288,11 @@
 		android:text="@string/baseButton"
 		android:id="@+id/baseButton"
 		android:typeface="monospace"
+		android:textSize="20sp"
+		android:onClick="baseButtonClick"
 		android:layout_below="@+id/button5"
 		android:layout_alignLeft="@+id/button5"
-		android:layout_alignStart="@+id/baseButton"
-		android:textSize="20sp"
-		android:onClick="baseButtonClick"/>
+		android:layout_alignStart="@+id/button5"/>
 
 	<TextView
 		android:layout_width="140dp"
@@ -304,7 +311,7 @@
 		android:layout_height="80dp"
 		android:orientation="horizontal"
 		android:id="@+id/radioSide"
-		android:layout_above="@+id/button3"
+		android:layout_below="@+id/textView"
 		android:layout_toRightOf="@+id/textView">
 
 		<RadioButton

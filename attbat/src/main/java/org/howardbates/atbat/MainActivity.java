@@ -14,14 +14,15 @@ public class MainActivity extends ActionBarActivity {
 	private TextView strikeText, ballText, foulText, outText, runText, inningText, ourTeamName, opponentTeamName, ourScore, opponentScore;
 	private ImageView inningPart;
 	private RadioGroup radioSide;
-	private boolean inningTop;
-	private boolean weAreHome;
-	private final int MAX = 2;
+	private boolean inningTop, weAreHome, modifiedStrike, previousInning;
+	private final int MAX = 2, NUM_VALUES = 8, STRIKE = 0, BALL = 1, FOUL = 2, OUT = 3, RUN = 4, OURSCORE = 5, OPPONENTSCORE = 6, INNING = 7;
+	private int[] screenValues;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.layout_main);
+		screenValues = new int[NUM_VALUES];
 		strikeText = (TextView)findViewById(R.id.strikeText);
 		ballText = (TextView)findViewById(R.id.ballText);
 		foulText = (TextView)findViewById(R.id.foulText);
@@ -52,7 +53,38 @@ public class MainActivity extends ActionBarActivity {
 		});
 	}
 
+	private void setScreenValues() {
+		screenValues[STRIKE] = Integer.parseInt(strikeText.getText().toString());
+		screenValues[BALL] = Integer.parseInt(ballText.getText().toString());
+		screenValues[FOUL] = Integer.parseInt(foulText.getText().toString());
+		screenValues[OUT] = Integer.parseInt(outText.getText().toString());
+		screenValues[RUN] = Integer.parseInt(runText.getText().toString());
+		screenValues[OURSCORE] = Integer.parseInt(ourScore.getText().toString());
+		screenValues[OPPONENTSCORE] = Integer.parseInt(opponentScore.getText().toString());
+		screenValues[INNING] = Integer.parseInt(inningText.getText().toString());
+		previousInning = inningTop;
+	}
+
+	private void populateScreenValues() {
+		strikeText.setText(Integer.toString(screenValues[STRIKE]));
+		ballText.setText(Integer.toString(screenValues[BALL]));
+		foulText.setText(Integer.toString(screenValues[FOUL]));
+		outText.setText(Integer.toString(screenValues[OUT]));
+		runText.setText(Integer.toString(screenValues[RUN]));
+		ourScore.setText(Integer.toString(screenValues[OURSCORE]));
+		opponentScore.setText(Integer.toString(screenValues[OPPONENTSCORE]));
+		inningText.setText(Integer.toString(screenValues[INNING]));
+		inningTop = previousInning;
+		if (previousInning) {
+
+			inningPart.setImageResource(R.drawable.uparrow);
+		} else {
+			inningPart.setImageResource(R.drawable.downarrow);
+		}
+	}
+
 	public void strikeButtonClick(View v) {
+		setScreenValues();
 		int strikes = Integer.parseInt(strikeText.getText().toString());
 		if (strikes < MAX) {
 			strikes++;
@@ -71,11 +103,9 @@ public class MainActivity extends ActionBarActivity {
 				int inning = Integer.parseInt(inningText.getText().toString());
 				if (inningTop) {
 					inningTop = false;
-					inningPart.setBackgroundResource(0);
 					inningPart.setImageResource(R.drawable.downarrow);
 				} else {
 					inningTop = true;
-					inningPart.setBackgroundResource(0);
 					inningPart.setImageResource(R.drawable.uparrow);
 					inning++;
 					inningText.setText(Integer.toString(inning));
@@ -102,17 +132,23 @@ public class MainActivity extends ActionBarActivity {
 		int strikes = Integer.parseInt(strikeText.getText().toString());
 		fouls++;
 		foulText.setText(Integer.toString(fouls));
+		modifiedStrike = false;
 		if (strikes < MAX) {
+			modifiedStrike = true;
 			strikes++;
 			strikeText.setText(Integer.toString(strikes));
 		}
 	}
 
 	public void outButtonClick(View v) {
+		setScreenValues();
 		int outs = Integer.parseInt(outText.getText().toString());
 		if (outs < MAX) {
 			outs++;
 			outText.setText(Integer.toString(outs));
+			strikeText.setText(Integer.toString(0));
+			foulText.setText(Integer.toString(0));
+			ballText.setText(Integer.toString(0));
 		} else {
 			outText.setText(Integer.toString(0));
                ballText.setText(Integer.toString(0));
@@ -122,11 +158,9 @@ public class MainActivity extends ActionBarActivity {
                int inning = Integer.parseInt(inningText.getText().toString());
                if (inningTop) {
                     inningTop = false;
-                    inningPart.setBackgroundResource(0);
-                    inningPart.setImageResource(R.drawable.downarrow);
+	               inningPart.setImageResource(R.drawable.downarrow);
                } else {
                     inningTop = true;
-                    inningPart.setBackgroundResource(0);
                     inningPart.setImageResource(R.drawable.uparrow);
                     inning++;
                     inningText.setText(Integer.toString(inning));
@@ -164,11 +198,12 @@ public class MainActivity extends ActionBarActivity {
 	}
 
 	public void undoStrikeButtonClick(View V) {
-		int strikes = Integer.parseInt(strikeText.getText().toString());
+		populateScreenValues();
+		/*int strikes = Integer.parseInt(strikeText.getText().toString());
 		if (strikes > 0) {
 			strikes--;
 			strikeText.setText(Integer.toString(strikes));
-		}
+		}*/
 	}
 
 	public void undoBallButtonClick(View V) {
@@ -186,43 +221,44 @@ public class MainActivity extends ActionBarActivity {
 			foulText.setText(Integer.toString(fouls));
 		}
           int strikes = Integer.parseInt(strikeText.getText().toString());
-          if (strikes > 0) {
+          if (strikes > 0 && modifiedStrike) {
                strikes--;
                strikeText.setText(Integer.toString(strikes));
           }
 	}
 
 	public void undoOutButtonClick(View V) {
-		int outs = Integer.parseInt(outText.getText().toString());
+		populateScreenValues();
+		/*int outs = Integer.parseInt(outText.getText().toString());
 		if (outs > 0) {
-			outs--;
-			outText.setText(Integer.toString(outs));
-		}
+			populateScreenValues();
+		}*/
 	}
 
 	public void undoRunButtonClick(View V) {
-		int runs = Integer.parseInt(runText.getText().toString());
+		populateScreenValues();
+		/*int runs = Integer.parseInt(runText.getText().toString());
 		if (runs > 0) {
 			runs--;
 			runText.setText(Integer.toString(runs));
-               if (weAreHome && inningTop) {
-                    int score = Integer.parseInt(opponentScore.getText().toString());
-                    score++;
-                    opponentScore.setText(Integer.toString(score));
-               } else if (!weAreHome && inningTop) {
-                    int score = Integer.parseInt(ourScore.getText().toString());
-                    score++;
-                    ourScore.setText(Integer.toString(score));
-               } else if (weAreHome && !inningTop) {
-                    int score = Integer.parseInt(ourScore.getText().toString());
-                    score++;
-                    ourScore.setText(Integer.toString(score));
-               } else {
-                    int score = Integer.parseInt(opponentScore.getText().toString());
-                    score++;
-                    opponentScore.setText(Integer.toString(score));
-               }
-          }
+			if (weAreHome && inningTop) {
+				int score = Integer.parseInt(opponentScore.getText().toString());
+				score--;
+				opponentScore.setText(Integer.toString(score));
+			} else if (!weAreHome && inningTop) {
+				int score = Integer.parseInt(ourScore.getText().toString());
+				score--;
+				ourScore.setText(Integer.toString(score));
+			} else if (weAreHome && !inningTop) {
+				int score = Integer.parseInt(ourScore.getText().toString());
+				score--;
+				ourScore.setText(Integer.toString(score));
+			} else {
+				int score = Integer.parseInt(opponentScore.getText().toString());
+				score--;
+				opponentScore.setText(Integer.toString(score));
+			}
+          }*/
 	}
 
 	@Override
