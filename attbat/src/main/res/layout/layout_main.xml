@@ -71,7 +71,7 @@
 		android:textSize="28sp"
 		android:clickable="true"
 		android:layout_marginBottom="20dp"
-		android:onClick="undoStrikeButtonClick"/>
+		android:onClick="subtractStrike"/>
 
 	<TextView
 		android:layout_width="60dp"
@@ -87,7 +87,7 @@
 		android:gravity="center_vertical|center_horizontal"
 		android:clickable="true"
 		android:layout_marginBottom="20dp"
-		android:onClick="undoBallButtonClick"/>
+		android:onClick="subtractBall"/>
 
 	<TextView
 		android:layout_width="60dp"
@@ -99,9 +99,9 @@
 		android:textSize="28sp"
 		android:gravity="center_vertical|center_horizontal"
 		android:clickable="true"
-		android:onClick="undoFoulButtonClick"
 		android:layout_below="@+id/button2"
-		android:layout_toRightOf="@+id/button5"/>
+		android:layout_toRightOf="@+id/button5"
+		android:onClick="subtractFoul"/>
 
 	<TextView
 		android:layout_width="75dp"
@@ -139,10 +139,10 @@
 		android:textSize="28sp"
 		android:gravity="center_vertical|center_horizontal"
 		android:clickable="true"
-		android:onClick="undoRunButtonClick"
 		android:layout_alignTop="@+id/button5"
 		android:layout_alignRight="@+id/opponentTeamName"
-		android:layout_alignEnd="@+id/opponentTeamName"/>
+		android:layout_alignEnd="@+id/opponentTeamName"
+		android:onClick="subtractRun"/>
 
 	<Button
 		style="?android:attr/buttonStyleSmall"
@@ -169,7 +169,7 @@
 		android:layout_below="@+id/button3"
 		android:layout_toRightOf="@+id/button3"
 		android:clickable="true"
-		android:onClick="undoOutButtonClick"/>
+		android:onClick="subtractOut"/>
 
 	<ImageView
 		android:layout_width="30dp"
@@ -177,7 +177,9 @@
 		android:id="@+id/inningPart"
 		android:contentDescription="@string/topOrBottom"
 		android:layout_alignTop="@+id/inningText"
-		android:layout_toRightOf="@+id/textView5"/>
+		android:layout_toRightOf="@+id/textView5"
+		android:onClick="revertInningTop"
+		android:clickable="true"/>
 
 	<TextView
 		android:layout_width="40dp"
@@ -189,7 +191,9 @@
 		android:id="@+id/inningText"
 		android:gravity="center_vertical|center_horizontal"
 		android:layout_above="@+id/textView9"
-		android:layout_toRightOf="@+id/inningPart"/>
+		android:layout_toRightOf="@+id/inningPart"
+		android:clickable="true"
+		android:onClick="subtractInning"/>
 
 	<TextView
 		android:layout_width="fill_parent"
@@ -234,27 +238,29 @@
 	<TextView
 		android:layout_width="120dp"
 		android:layout_height="30dp"
-		android:textStyle="bold"
 		android:typeface="monospace"
 		android:text="@string/zero"
-		android:textSize="28sp"
+		android:textSize="27sp"
 		android:id="@+id/ourScore"
 		android:gravity="center_vertical|center_horizontal"
 		android:layout_alignParentBottom="true"
-		android:layout_toRightOf="@+id/textView"/>
+		android:layout_toRightOf="@+id/textView"
+		android:onClick="subtractOurScore"
+		android:clickable="true"/>
 
 	<TextView
 		android:layout_width="120dp"
 		android:layout_height="30dp"
-		android:textStyle="bold"
 		android:typeface="monospace"
 		android:text="@string/zero"
-		android:textSize="28sp"
+		android:textSize="27sp"
 		android:id="@+id/opponentScore"
 		android:gravity="center_vertical|center_horizontal"
 		android:layout_alignParentBottom="true"
 		android:layout_alignParentRight="true"
-		android:layout_alignParentEnd="true"/>
+		android:layout_alignParentEnd="true"
+		android:onClick="subtractOpponentScore"
+		android:clickable="true"/>
 
 	<Spinner
 		android:layout_width="170dp"
@@ -336,5 +342,16 @@
 			android:text="@string/vistorButton"
 			android:id="@+id/visitorButton"/>
 	</RadioGroup>
+
+	<Button
+		style="?android:attr/buttonStyleSmall"
+		android:layout_width="50dp"
+		android:layout_height="50dp"
+		android:id="@+id/undoButton"
+		android:layout_alignTop="@+id/baseButton"
+		android:layout_alignParentRight="true"
+		android:layout_alignParentEnd="true"
+		android:background="@drawable/undo"
+		android:onClick="undoButtonClick"/>
 
 </RelativeLayout>
