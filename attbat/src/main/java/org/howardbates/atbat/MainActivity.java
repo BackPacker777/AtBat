@@ -34,8 +34,12 @@ public class MainActivity extends ActionBarActivity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
+			Toast.makeText(getApplicationContext(), "Settings selected", Toast.LENGTH_LONG).show();
+//			startActivity(new Intent(this, Settings.class));
 			return true;
 		} else if (id == R.id.action_about) {
+			Toast.makeText(getApplicationContext(), "About selected", Toast.LENGTH_LONG).show();
+//			startActivity(new Intent(this, About.class));
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
@@ -62,7 +66,7 @@ public class MainActivity extends ActionBarActivity {
 		setWeAreHome();
 		inningPart.setImageResource(R.drawable.uparrow);
 		setScreenValues();
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 2; i++) {
 			Toast.makeText(getApplicationContext(), "You MUST select home or visitor!", Toast.LENGTH_LONG).show();
 		}
 	}
