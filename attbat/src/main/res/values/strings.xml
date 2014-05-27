@@ -6,9 +6,12 @@
 
 	<!--Spinner-->
 	<string-array name="players">
+		<item>Alex</item>
+		<item>Kevin</item>
 		<item>Kenan</item>
 		<item>Tommy</item>
-		<item>Kevin</item>
+		<item>Conner</item>
+		<item>Josiah</item>
 		<item>Kenneth</item>
 		<item>Alan</item>
 		<item>Jackson</item>

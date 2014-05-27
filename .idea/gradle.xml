@@ -8,8 +8,8 @@
         <option name="gradleHome" value="A:/sdk/gradle-1.11" />
         <option name="modules">
           <set>
-            <option value="A:\SANDBOX\Droid\AtBat" />
-            <option value="A:\SANDBOX\Droid\AtBat\attbat" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/attbat" />
           </set>
         </option>
       </GradleProjectSettings>
