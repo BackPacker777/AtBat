@@ -1,7 +1,8 @@
 package org.howardbates.atbat;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,7 +11,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
 
 	private TextView strikeText, ballText, foulText, outText, runText, inningText, ourScore, opponentScore;
 	private ImageView inningPart;
@@ -34,12 +35,12 @@ public class MainActivity extends ActionBarActivity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
-			Toast.makeText(getApplicationContext(), "Settings selected", Toast.LENGTH_LONG).show();
+//			Toast.makeText(getApplicationContext(), "Settings selected", Toast.LENGTH_LONG).show();
 //			startActivity(new Intent(this, Settings.class));
 			return true;
 		} else if (id == R.id.action_about) {
-			Toast.makeText(getApplicationContext(), "About selected", Toast.LENGTH_LONG).show();
-//			startActivity(new Intent(this, About.class));
+//			Toast.makeText(getApplicationContext(), "About selected", Toast.LENGTH_LONG).show();
+			startActivity(new Intent(this, AboutActivity.class));
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

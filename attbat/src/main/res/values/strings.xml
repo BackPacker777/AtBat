@@ -1,42 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<!--Menu-->
-	<string name="action_settings">Settings</string>
-	<string name="action_about">About</string>
 
-	<!--Spinner-->
-	<string-array name="players">
-		<item>Alex</item>
-		<item>Kevin</item>
-		<item>Kenan</item>
-		<item>Tommy</item>
-		<item>Conner</item>
-		<item>Josiah</item>
-		<item>Kenneth</item>
-		<item>Alan</item>
-		<item>Jackson</item>
-		<item>Hayden</item>
-		<item>Gordon</item>
-	</string-array>
+    <!-- Menu -->
+    <string name="action_settings">Settings</string>
+    <string name="action_about">About</string>
 
-	<!--Layout-->
-	<string name="app_name">At Bat!</string>
-	<string name="inningLabel">Inning:</string>
-	<string name="strikesButton">STRIKE</string>
-	<string name="ballsButton">BALL</string>
-	<string name="foulsButton">FOUL</string>
-	<string name="outsButton">OUT</string>
-	<string name="zero">0</string>
-	<string name="topOrBottom">top_or_bottom</string>
-	<string name="runsButton">RUN</string>
-	<string name="baseButton">BASE</string>
-	<string name="scoreLabel">S  C  O  R  E</string>
-	<string name="homeLabel">Us</string>
-	<string name="visitorLabel">Opponent</string>
-	<string name="spinnerLabel">Player Batting:</string>
-	<string name="inningStart">1</string>
-	<string name="radioLabel">We are:</string>
-	<string name="homeButton">Home</string>
-	<string name="vistorButton">Visitors</string>
+    <!-- Spinner -->
+    <string-array name="players">
+        <item>Alex</item>
+        <item>Kevin</item>
+        <item>Kenan</item>
+        <item>Tommy</item>
+        <item>Conner</item>
+        <item>Josiah</item>
+        <item>Kenneth</item>
+        <item>Alan</item>
+        <item>Jackson</item>
+        <item>Hayden</item>
+        <item>Gordon</item>
+    </string-array>
+
+    <!-- Layout -->
+    <string name="app_name">At Bat!</string>
+    <string name="inningLabel">Inning:</string>
+    <string name="strikesButton">STRIKE</string>
+    <string name="ballsButton">BALL</string>
+    <string name="foulsButton">FOUL</string>
+    <string name="outsButton">OUT</string>
+    <string name="zero">0</string>
+    <string name="topOrBottom">top_or_bottom</string>
+    <string name="runsButton">RUN</string>
+    <string name="baseButton">BASE</string>
+    <string name="scoreLabel">S  C  O  R  E</string>
+    <string name="homeLabel">Us</string>
+    <string name="visitorLabel">Opponent</string>
+    <string name="spinnerLabel">Player Batting:</string>
+    <string name="inningStart">1</string>
+    <string name="radioLabel">We are:</string>
+    <string name="homeButton">Home</string>
+    <string name="vistorButton">Visitors</string>
+    <string name="title_activity_about">About: At Bat!</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="aboutText">Lucky Backpacker Software</string>
+    <string name="offense_tab">Offense</string>
+    <string name="defense_tab">Defense</string>
+    <string name="title_activity_offense">OffenseActivity</string>
 
 </resources>

@@ -9,7 +9,7 @@ buildscript {
 apply plugin: 'android'
 
 repositories {
-        mavenCentral()
+    mavenCentral()
 }
 
 android {
@@ -31,6 +31,6 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:19.1.0'
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:19.1.0'
 }
