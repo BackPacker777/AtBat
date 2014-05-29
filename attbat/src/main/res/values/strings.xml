@@ -44,7 +44,7 @@
     <string name="aboutText">Lucky Backpacker Software</string>
     <string name="offense_tab">Offense</string>
     <string name="defense_tab">Defense</string>
-    <string name="title_activity_offense">OffenseActivity</string>
-    <string name="title_activity_defense">DefenseActivity</string>
+    <string name="title_activity_defense">Defense</string>
+    <string name="title_activity_settings">Settings</string>
 
 </resources>
