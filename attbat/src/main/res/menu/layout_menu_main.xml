@@ -3,15 +3,13 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	tools:context="org.howardbates.atbat.MainActivity" >
 
-	<item android:id="@+id/offense_tab"
-	      android:title="@string/offense_tab"
-	      app:showAsAction="always" />
-
 	<item android:id="@+id/defense_tab"
+	      android:orderInCategory="10"
 	      android:title="@string/defense_tab"
 	      app:showAsAction="always" />
 
 	<item android:id="@+id/action_settings"
+	      android:orderInCategory="50"
 		android:title="@string/action_settings"
 		app:showAsAction="never" />
 

@@ -3,13 +3,13 @@ package org.howardbates.atbat;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
+import android.view.*;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.lang.reflect.Field;
 
 public class MainActivity extends Activity {
 
@@ -50,6 +50,8 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.layout_main);
+          setMenuFix();
+          getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		handleData = new DataHandler(this.getApplicationContext());
 		screenValues = new int[NUM_VALUES];
 		strikeText = (TextView)findViewById(R.id.strikeText);
@@ -71,6 +73,22 @@ public class MainActivity extends Activity {
 			Toast.makeText(getApplicationContext(), "You MUST select home or visitor!", Toast.LENGTH_LONG).show();
 		}
 	}
+
+     private void setMenuFix() {
+          try {
+               ViewConfiguration config = ViewConfiguration.get(this);
+               Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
+
+               if (menuKeyField != null) {
+                    menuKeyField.setAccessible(true);
+                    menuKeyField.setBoolean(config, false);
+               }
+          }
+          catch (Exception e) {
+               // presumably, not relevant
+               //http://stackoverflow.com/questions/20444596/how-to-force-action-bar-overflow-icon-to-show
+          }
+     }
 
 	private void setWeAreHome() {
 		radioSide.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {

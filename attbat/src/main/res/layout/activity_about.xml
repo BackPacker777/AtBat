@@ -12,13 +12,11 @@
         android:text="@string/aboutText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="103dp"
+        android:layout_marginTop="44dp"
         android:id="@+id/textView"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
-        android:typeface="monospace"/>
+        android:typeface="monospace" android:layout_alignParentTop="true" android:layout_centerHorizontal="true"/>
 
 	<ImageView
 		android:layout_width="70dp"
@@ -37,7 +35,7 @@
 		android:layout_below="@+id/imageView"
 		android:layout_centerHorizontal="true"
 		android:layout_marginTop="27dp"
-		android:textSize="18sp"/>
+		android:textSize="12sp"/>
 
 	<ImageButton
 		android:layout_width="100dp"

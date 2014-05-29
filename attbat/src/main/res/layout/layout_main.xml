@@ -14,168 +14,167 @@
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:gravity="center"
         android:id="@+id/textView"/>
+
+	<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="fill_parent" android:id="@+id/linearLayout" android:layout_alignParentTop="true" android:layout_alignRight="@+id/textView9" android:layout_alignEnd="@+id/textView9" android:layout_above="@+id/undoButton">
 
 	<Button
 		style="?android:attr/buttonStyleSmall"
-		android:layout_width="100dp"
-		android:layout_height="50dp"
+		android:layout_width="match_parent"
+		android:layout_height="40dp"
 		android:text="@string/strikesButton"
 		android:id="@+id/button"
 		android:typeface="monospace"
-		android:textSize="20sp"
+		android:textSize="14sp"
 		android:onClick="strikeButtonClick"
-		android:layout_alignParentTop="true"
-		android:layout_marginBottom="20dp"
-		android:layout_toLeftOf="@+id/strikeText"/>
+		android:paddingBottom="4dp" android:layout_alignParentTop="true" android:layout_alignLeft="@+id/button5" android:layout_alignStart="@+id/button5" android:layout_marginBottom="8dp"/>
 
 	<Button
 		style="?android:attr/buttonStyleSmall"
-		android:layout_width="100dp"
-		android:layout_height="50dp"
+		android:layout_width="match_parent"
+		android:layout_height="40dp"
 		android:text="@string/ballsButton"
 		android:id="@+id/button2"
-		android:layout_below="@+id/button"
-		android:layout_alignLeft="@+id/button"
-		android:layout_alignStart="@+id/button"
 		android:typeface="monospace"
-		android:textSize="20sp"
-		android:layout_marginBottom="20dp"
-		android:onClick="ballButtonClick"/>
+		android:textSize="14sp"
+		android:onClick="ballButtonClick" android:paddingBottom="4dp" android:paddingTop="4dp" android:layout_alignBottom="@+id/radioSide" android:layout_alignLeft="@+id/button3" android:layout_alignStart="@+id/button3" android:layout_marginBottom="8dp"/>
 
 	<Button
 		style="?android:attr/buttonStyleSmall"
-		android:layout_width="100dp"
-		android:layout_height="50dp"
+		android:layout_width="match_parent"
+		android:layout_height="40dp"
 		android:text="@string/foulsButton"
 		android:id="@+id/button3"
-		android:layout_below="@+id/button2"
-		android:layout_alignLeft="@+id/button2"
-		android:layout_alignStart="@+id/button2"
 		android:typeface="monospace"
-		android:textSize="20sp"
-		android:layout_marginBottom="20dp"
-		android:onClick="foulButtonClick"/>
-
-	<TextView
-		android:layout_width="60dp"
-		android:layout_height="50dp"
-		android:id="@+id/strikeText"
-		android:layout_alignTop="@+id/button"
-		android:layout_alignLeft="@+id/foulText"
-		android:layout_alignStart="@+id/foulText"
-		android:layout_above="@+id/button2"
-		android:gravity="center_vertical|center_horizontal"
-		android:textStyle="bold"
-		android:typeface="monospace"
-		android:text="@string/zero"
-		android:textSize="28sp"
-		android:clickable="true"
-		android:layout_marginBottom="20dp"
-		android:onClick="subtractStrike"/>
-
-	<TextView
-		android:layout_width="60dp"
-		android:layout_height="50dp"
-		android:id="@+id/ballText"
-		android:layout_above="@+id/button3"
-		android:layout_alignLeft="@+id/strikeText"
-		android:layout_alignStart="@+id/strikeText"
-		android:textStyle="bold"
-		android:typeface="monospace"
-		android:text="@string/zero"
-		android:textSize="28sp"
-		android:gravity="center_vertical|center_horizontal"
-		android:clickable="true"
-		android:layout_marginBottom="20dp"
-		android:onClick="subtractBall"/>
-
-	<TextView
-		android:layout_width="60dp"
-		android:layout_height="50dp"
-		android:id="@+id/foulText"
-		android:textStyle="bold"
-		android:typeface="monospace"
-		android:text="@string/zero"
-		android:textSize="28sp"
-		android:gravity="center_vertical|center_horizontal"
-		android:clickable="true"
-		android:layout_below="@+id/button2"
-		android:layout_toRightOf="@+id/button5"
-		android:onClick="subtractFoul"/>
-
-	<TextView
-		android:layout_width="75dp"
-		android:layout_height="50dp"
-		android:text="@string/inningLabel"
-		android:id="@+id/textView5"
-		android:gravity="center_vertical|center_horizontal"
-		android:textStyle="bold"
-		android:textSize="16sp"
-		android:typeface="monospace"
-		android:layout_alignTop="@+id/inningPart"
-		android:layout_toRightOf="@+id/textView"/>
+		android:textSize="14sp"
+		android:onClick="foulButtonClick" android:paddingBottom="4dp" android:paddingTop="4dp" android:layout_below="@+id/radioSide" android:layout_alignParentRight="true" android:layout_alignParentEnd="true" android:layout_marginBottom="8dp"/>
 
 	<Button
 		style="?android:attr/buttonStyleSmall"
-		android:layout_width="100dp"
-		android:layout_height="50dp"
+		android:layout_width="match_parent"
+		android:layout_height="40dp"
 		android:text="@string/outsButton"
 		android:id="@+id/button4"
 		android:typeface="monospace"
-		android:layout_below="@+id/button3"
-		android:layout_alignLeft="@+id/button3"
-		android:layout_alignStart="@+id/button3"
-		android:textSize="20sp"
-		android:layout_marginBottom="20dp"
-		android:onClick="outButtonClick"/>
-
-	<TextView
-		android:layout_width="60dp"
-		android:layout_height="50dp"
-		android:id="@+id/runText"
-		android:textStyle="bold"
-		android:typeface="monospace"
-		android:text="@string/zero"
-		android:textSize="28sp"
-		android:gravity="center_vertical|center_horizontal"
-		android:clickable="true"
-		android:layout_alignTop="@+id/button5"
-		android:layout_alignRight="@+id/opponentTeamName"
-		android:layout_alignEnd="@+id/opponentTeamName"
-		android:onClick="subtractRun"/>
+		android:textSize="14sp"
+		android:onClick="outButtonClick" android:paddingBottom="4dp" android:paddingTop="4dp" android:layout_above="@+id/button5" android:layout_alignParentRight="true" android:layout_alignParentEnd="true" android:layout_marginBottom="8dp"/>
 
 	<Button
 		style="?android:attr/buttonStyleSmall"
-		android:layout_width="100dp"
-		android:layout_height="50dp"
+		android:layout_width="match_parent"
+		android:layout_height="40dp"
 		android:text="@string/runsButton"
 		android:id="@+id/button5"
 		android:typeface="monospace"
-		android:textSize="20sp"
+		android:textSize="14sp"
 		android:onClick="runButtonClick"
-		android:layout_below="@+id/button4"
-		android:layout_marginBottom="20dp"
-		android:layout_toLeftOf="@+id/runText"/>
+		android:paddingBottom="4dp" android:paddingTop="4dp" android:layout_centerVertical="true" android:layout_alignLeft="@+id/baseButton" android:layout_alignStart="@+id/baseButton" android:layout_marginBottom="8dp"/>
+
+	<Button
+		style="?android:attr/buttonStyleSmall"
+		android:layout_width="match_parent"
+		android:layout_height="40dp"
+		android:text="@string/baseButton"
+		android:id="@+id/baseButton"
+		android:typeface="monospace"
+		android:textSize="14sp"
+		android:onClick="baseButtonClick"
+		android:layout_above="@+id/undoButton" android:layout_alignParentRight="true" android:layout_alignParentEnd="true" android:paddingBottom="4dp" android:paddingTop="4dp"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="fill_parent" android:id="@+id/linearLayout2" android:layout_alignTop="@+id/linearLayout" android:layout_alignLeft="@+id/opponentTeamName" android:layout_alignStart="@+id/opponentTeamName" android:layout_above="@+id/undoButton">
+
+		<TextView
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:id="@+id/strikeText"
+			android:gravity="center_vertical|center_horizontal"
+			android:textStyle="bold"
+			android:typeface="monospace"
+			android:text="@string/zero"
+			android:textSize="28sp"
+			android:clickable="true"
+			android:onClick="subtractStrike" android:layout_alignBaseline="@+id/button2" android:layout_alignBottom="@+id/button2" android:layout_alignLeft="@+id/ballText" android:layout_alignStart="@+id/ballText" android:layout_marginBottom="8dp"/>
+
+		<TextView
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:id="@+id/ballText"
+			android:textStyle="bold"
+			android:typeface="monospace"
+			android:text="@string/zero"
+			android:textSize="28sp"
+			android:gravity="center_vertical|center_horizontal"
+			android:clickable="true"
+			android:onClick="subtractBall" android:layout_alignTop="@+id/textView2" android:layout_toLeftOf="@+id/button" android:layout_marginBottom="8dp"/>
+
+		<TextView
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:id="@+id/foulText"
+			android:textStyle="bold"
+			android:typeface="monospace"
+			android:text="@string/zero"
+			android:textSize="28sp"
+			android:gravity="center_vertical|center_horizontal"
+			android:clickable="true"
+			android:onClick="subtractFoul" android:layout_alignTop="@+id/button3" android:layout_toLeftOf="@+id/button3" android:layout_marginBottom="8dp"/>
+
+		<TextView
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:id="@+id/outText"
+			android:textStyle="bold"
+			android:typeface="monospace"
+			android:text="@string/zero"
+			android:textSize="28sp"
+			android:gravity="center_vertical|center_horizontal"
+			android:clickable="true"
+			android:onClick="subtractOut" android:layout_alignBottom="@+id/spinner" android:layout_alignLeft="@+id/opponentTeamName" android:layout_alignStart="@+id/opponentTeamName" android:layout_marginBottom="8dp"/>
+
+		<TextView
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:id="@+id/runText"
+			android:textStyle="bold"
+			android:typeface="monospace"
+			android:text="@string/zero"
+			android:textSize="28sp"
+			android:gravity="center_vertical|center_horizontal"
+			android:clickable="true"
+			android:onClick="subtractRun" android:layout_alignTop="@+id/button5" android:layout_toLeftOf="@+id/button5"/>
+
+	</LinearLayout>
 
 	<TextView
-		android:layout_width="60dp"
-		android:layout_height="50dp"
-		android:id="@+id/outText"
-		android:textStyle="bold"
-		android:typeface="monospace"
-		android:text="@string/zero"
-		android:textSize="28sp"
-		android:gravity="center_vertical|center_horizontal"
-		android:layout_below="@+id/button3"
-		android:layout_toRightOf="@+id/button3"
-		android:clickable="true"
-		android:onClick="subtractOut"/>
+			android:layout_width="75dp"
+			android:layout_height="40dp"
+			android:text="@string/inningLabel"
+			android:id="@+id/textView5"
+			android:gravity="center_vertical|center_horizontal"
+			android:textStyle="bold"
+			android:textSize="16sp"
+			android:typeface="monospace"
+			android:layout_alignTop="@+id/inningPart"
+			android:layout_toRightOf="@+id/textView"/>
+
+
+
 
 	<ImageView
 		android:layout_width="30dp"
-		android:layout_height="50dp"
+		android:layout_height="40dp"
 		android:id="@+id/inningPart"
 		android:contentDescription="@string/topOrBottom"
 		android:layout_alignTop="@+id/inningText"
@@ -185,7 +184,7 @@
 
 	<TextView
 		android:layout_width="40dp"
-		android:layout_height="50dp"
+		android:layout_height="40dp"
 		android:textStyle="bold"
 		android:typeface="monospace"
 		android:text="@string/inningStart"
@@ -270,12 +269,10 @@
 		android:entries="@array/players"
 		android:prompt="@string/spinnerLabel"
 		android:id="@+id/spinner"
-		android:layout_below="@+id/textView14"
-		android:layout_alignParentLeft="true"
-		android:layout_alignParentStart="true"/>
+		android:layout_below="@+id/textView14" android:layout_alignParentLeft="true" android:layout_alignParentStart="true"/>
 
 	<TextView
-		android:layout_width="wrap_content"
+		android:layout_width="170dp"
 		android:layout_height="wrap_content"
 		android:text="@string/spinnerLabel"
 		android:id="@+id/textView14"
@@ -283,24 +280,43 @@
 		android:textStyle="bold"
 		android:typeface="monospace"
 		android:textSize="14sp"
-		android:layout_below="@+id/radioSide"
-		android:layout_alignRight="@+id/spinner"
-		android:layout_alignEnd="@+id/spinner"
-		android:layout_alignParentLeft="true"
-		android:layout_alignParentStart="true"/>
+		android:layout_below="@+id/radioSide" android:layout_alignParentLeft="true" android:layout_alignParentStart="true"/>
+
+	<RadioGroup
+		android:layout_width="160dp"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:id="@+id/radioSide"
+		android:layout_below="@+id/textView" android:layout_alignParentLeft="true" android:layout_alignParentStart="true" android:layout_marginTop="24dp">
+
+		<RadioButton
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:button="@null"
+			android:drawableBottom="@android:drawable/btn_radio"
+			android:gravity="center"
+			android:layout_weight="1"
+			android:text="@string/homeButton"
+			android:id="@+id/homeButton" android:layout_above="@+id/button5" android:layout_alignParentLeft="true" android:layout_alignParentStart="true" android:textSize="14sp"/>
+
+		<RadioButton
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:button="@null"
+			android:drawableBottom="@android:drawable/btn_radio"
+			android:gravity="center"
+			android:layout_weight="1"
+			android:text="@string/vistorButton"
+			android:id="@+id/visitorButton" android:layout_below="@+id/textView2" android:layout_toRightOf="@+id/textView" android:layout_toLeftOf="@+id/strikeText" android:textSize="14sp"/>
+	</RadioGroup>
 
 	<Button
 		style="?android:attr/buttonStyleSmall"
-		android:layout_width="100dp"
+		android:layout_width="50dp"
 		android:layout_height="50dp"
-		android:text="@string/baseButton"
-		android:id="@+id/baseButton"
-		android:typeface="monospace"
-		android:textSize="20sp"
-		android:onClick="baseButtonClick"
-		android:layout_below="@+id/button5"
-		android:layout_alignLeft="@+id/button5"
-		android:layout_alignStart="@+id/button5"/>
+		android:id="@+id/undoButton"
+		android:background="@drawable/undo"
+		android:onClick="undoButtonClick" android:layout_alignBottom="@+id/inningText" android:layout_alignRight="@+id/linearLayout" android:layout_alignEnd="@+id/linearLayout" android:layout_alignLeft="@+id/linearLayout" android:layout_alignStart="@+id/linearLayout"/>
 
 	<TextView
 		android:layout_width="140dp"
@@ -310,50 +326,6 @@
 		android:textStyle="bold"
 		android:gravity="center_vertical|center_horizontal"
 		android:typeface="monospace"
-		android:layout_alignParentTop="true"
-		android:layout_alignLeft="@+id/radioSide"
-		android:layout_alignStart="@+id/radioSide"/>
-
-	<RadioGroup
-		android:layout_width="140dp"
-		android:layout_height="80dp"
-		android:orientation="horizontal"
-		android:id="@+id/radioSide"
-		android:layout_below="@+id/textView"
-		android:layout_toRightOf="@+id/textView">
-
-		<RadioButton
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:button="@null"
-			android:drawableBottom="@android:drawable/btn_radio"
-			android:gravity="center"
-			android:textStyle="bold"
-			android:layout_weight="1"
-			android:text="@string/homeButton"
-			android:id="@+id/homeButton"/>
-
-		<RadioButton
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:button="@null"
-			android:drawableBottom="@android:drawable/btn_radio"
-			android:gravity="center"
-			android:textStyle="bold"
-			android:layout_weight="1"
-			android:text="@string/vistorButton"
-			android:id="@+id/visitorButton"/>
-	</RadioGroup>
-
-	<Button
-		style="?android:attr/buttonStyleSmall"
-		android:layout_width="50dp"
-		android:layout_height="50dp"
-		android:id="@+id/undoButton"
-		android:layout_alignTop="@+id/baseButton"
-		android:layout_alignParentRight="true"
-		android:layout_alignParentEnd="true"
-		android:background="@drawable/undo"
-		android:onClick="undoButtonClick"/>
+		android:layout_alignTop="@+id/textView" android:layout_toRightOf="@+id/textView"/>
 
 </RelativeLayout>

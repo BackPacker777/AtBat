@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.howardbates.atbat" >
+          xmlns:tools="http://schemas.android.com/tools" package="org.howardbates.atbat" >
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -27,8 +27,8 @@
             android:label="@string/title_activity_about" >
         </activity>
         <activity
-            android:name="org.howardbates.atbat.OffenseActivity"
-            android:label="@string/title_activity_offense" >
+            android:name="org.howardbates.atbat.DefenseActivity"
+            android:label="@string/title_activity_defense" >
         </activity>
     </application>
 

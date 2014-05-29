@@ -45,5 +45,6 @@
     <string name="offense_tab">Offense</string>
     <string name="defense_tab">Defense</string>
     <string name="title_activity_offense">OffenseActivity</string>
+    <string name="title_activity_defense">DefenseActivity</string>
 
 </resources>
