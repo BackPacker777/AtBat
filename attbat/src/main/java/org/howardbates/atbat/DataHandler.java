@@ -11,6 +11,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 /**
  * Created by bates.he.z on 5/22/2014.
@@ -18,12 +19,19 @@ import java.io.PrintWriter;
 
 public class DataHandler {
 	private final String FILENAME = "atbat.csv";
+	private ArrayList<String > names;
 	private Context context;
+	private File roster;
 
 	public DataHandler(Context context) {
+		File root = android.os.Environment.getExternalStorageDirectory();
+		roster = new File(root.getAbsolutePath() + "/atbat/atbat.csv");
+		names = new ArrayList<String>();
 		this.context = context;
 		checkExternalMedia();
-		writeData();
+		if (!roster.exists()) {
+			writeData();
+		}
 		readData();
 	}
 
@@ -35,7 +43,6 @@ public class DataHandler {
 		if (Environment.MEDIA_MOUNTED.equals(state)) {
 			// Can read and write the media
 			mExternalStorageAvailable = mExternalStorageWriteable = true;
-//			Toast.makeText(context, "Storage readable.", Toast.LENGTH_SHORT).show();
 		} else if (Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
 			// Can only read the media
 			mExternalStorageAvailable = true;
@@ -47,16 +54,17 @@ public class DataHandler {
 	}
 
 	private void readData(){
-		File root = android.os.Environment.getExternalStorageDirectory();
-		File file = new File(root.getAbsolutePath() + "/atbat/atbat.csv");
+		int counter = 0;
 		try {
-			FileInputStream fis = new FileInputStream(file);
+			FileInputStream fis = new FileInputStream(roster);
 			BufferedReader dataReader = new BufferedReader(new InputStreamReader(fis));
 			String inputString;
 			StringBuffer stringBuffer = new StringBuffer();
 			while ((inputString = dataReader.readLine()) != null) {
-				stringBuffer.append(inputString + "\n");
-//				Toast.makeText(context, inputString, Toast.LENGTH_SHORT).show();
+				names.add(inputString);
+//				stringBuffer.append(inputString + "\n");
+//				Toast.makeText(context, names.get(counter), Toast.LENGTH_SHORT).show();
+				counter++;
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -67,12 +75,20 @@ public class DataHandler {
 		File root = android.os.Environment.getExternalStorageDirectory();
 		File dir = new File(root.getAbsolutePath() + "/atbat");
 		dir.mkdirs();
-		File file = new File(dir, FILENAME);
 		try {
-			FileOutputStream f = new FileOutputStream(file);
+			FileOutputStream f = new FileOutputStream(roster);
 			PrintWriter pw = new PrintWriter(f);
+			pw.println("Alex Feeley");
+			pw.println("Kevin Kozlowski");
 			pw.println("Kenan Bates");
+			pw.println("Josiah Arndt");
 			pw.println("Tommy Skinner");
+			pw.println("Gordon McKenzie");
+			pw.println("Alan Elya");
+			pw.println("Conner Meengs");
+			pw.println("Jackson Jacobs");
+			pw.println("Kenneth Roberts");
+			pw.println("Hayden Simon");
 			pw.flush();
 			pw.close();
 			f.close();
@@ -81,5 +97,9 @@ public class DataHandler {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public ArrayList<String> getNames() {
+		return names;
 	}
 }

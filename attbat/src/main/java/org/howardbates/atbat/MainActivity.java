@@ -3,16 +3,23 @@ package org.howardbates.atbat;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.*;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewConfiguration;
+import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 
 public class MainActivity extends Activity {
-
 	private TextView strikeText, ballText, foulText, outText, runText, inningText, ourScore, opponentScore;
 	private ImageView inningPart;
 	private RadioGroup radioSide;
@@ -20,6 +27,9 @@ public class MainActivity extends Activity {
 	private boolean inningTop, weAreHome, currentInning, modifiedStrike;
 	private final int MAX = 2, NUM_VALUES = 8, STRIKE = 0, BALL = 1, FOUL = 2, OUT = 3, RUN = 4, OURSCORE = 5, OPPONENTSCORE = 6, INNING = 7;
 	private int[] screenValues;
+	private ArrayList<String> names;
+	private ArrayAdapter<String> listNames;
+	private ListView battingList;
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -30,17 +40,15 @@ public class MainActivity extends Activity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
-//			Toast.makeText(getApplicationContext(), "Settings selected", Toast.LENGTH_LONG).show();
-//			startActivity(new Intent(this, Settings.class));
+			startActivity(new Intent(this, SettingsActivity.class));
 			return true;
 		} else if (id == R.id.action_about) {
-//			Toast.makeText(getApplicationContext(), "About selected", Toast.LENGTH_LONG).show();
 			startActivity(new Intent(this, AboutActivity.class));
+			return true;
+		} else if (id == R.id.action_defense) {
+			startActivity(new Intent(this, DefenseActivity.class));
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
@@ -53,6 +61,8 @@ public class MainActivity extends Activity {
           setMenuFix();
           getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		handleData = new DataHandler(this.getApplicationContext());
+		names = handleData.getNames();
+		battingList = (ListView) findViewById(R.id.battingList);
 		screenValues = new int[NUM_VALUES];
 		strikeText = (TextView)findViewById(R.id.strikeText);
 		ballText = (TextView)findViewById(R.id.ballText);
@@ -67,8 +77,9 @@ public class MainActivity extends Activity {
 		inningTop = true;
 		currentInning = inningTop;
 		setWeAreHome();
-		inningPart.setImageResource(R.drawable.uparrow);
+		inningPart.setImageResource(R.drawable.inning_top);
 		setScreenValues();
+		setListNames();
 		for (int i = 0; i < 2; i++) {
 			Toast.makeText(getApplicationContext(), "You MUST select home or visitor!", Toast.LENGTH_LONG).show();
 		}
@@ -126,10 +137,26 @@ public class MainActivity extends Activity {
 		inningText.setText(Integer.toString(screenValues[INNING]));
 		inningTop = currentInning;
 		if (currentInning) {
-			inningPart.setImageResource(R.drawable.uparrow);
+			inningPart.setImageResource(R.drawable.inning_top);
 		} else {
-			inningPart.setImageResource(R.drawable.downarrow);
+			inningPart.setImageResource(R.drawable.inning_bottom);
 		}
+	}
+
+	private void setListNames() {
+		listNames = new ArrayAdapter<String>(
+			this,
+			android.R.layout.simple_list_item_1,
+			names);
+		battingList.setAdapter(listNames);
+		battingList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+		battingList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position,long arg3) {
+				view.setSelected(true);
+//				http://stackoverflow.com/questions/16189651/android-listview-selected-item-stay-highlighted
+			}
+		});
 	}
 
 	public void strikeButtonClick(View v) {
@@ -152,10 +179,10 @@ public class MainActivity extends Activity {
 				int inning = Integer.parseInt(inningText.getText().toString());
 				if (inningTop) {
 					inningTop = false;
-					inningPart.setImageResource(R.drawable.downarrow);
+					inningPart.setImageResource(R.drawable.inning_bottom);
 				} else {
 					inningTop = true;
-					inningPart.setImageResource(R.drawable.uparrow);
+					inningPart.setImageResource(R.drawable.inning_top);
 					inning++;
 					inningText.setText(Integer.toString(inning));
 				}
@@ -197,9 +224,9 @@ public class MainActivity extends Activity {
 		if (outs < MAX) {
 			outs++;
 			outText.setText(Integer.toString(outs));
-			strikeText.setText(Integer.toString(0));
-			foulText.setText(Integer.toString(0));
-			ballText.setText(Integer.toString(0));
+//			strikeText.setText(Integer.toString(0));
+//			foulText.setText(Integer.toString(0));
+//			ballText.setText(Integer.toString(0));
 		} else {
 			outText.setText(Integer.toString(0));
                ballText.setText(Integer.toString(0));
@@ -209,10 +236,10 @@ public class MainActivity extends Activity {
                int inning = Integer.parseInt(inningText.getText().toString());
                if (inningTop) {
                     inningTop = false;
-	               inningPart.setImageResource(R.drawable.downarrow);
+	               inningPart.setImageResource(R.drawable.inning_bottom);
                } else {
                     inningTop = true;
-                    inningPart.setImageResource(R.drawable.uparrow);
+                    inningPart.setImageResource(R.drawable.inning_top);
                     inning++;
                     inningText.setText(Integer.toString(inning));
                }
@@ -329,10 +356,10 @@ public class MainActivity extends Activity {
 	public void revertInningTop(View v) {
 		if (inningTop) {
 			inningTop = false;
-			inningPart.setImageResource(R.drawable.downarrow);
+			inningPart.setImageResource(R.drawable.inning_bottom);
 		} else {
 			inningTop = true;
-			inningPart.setImageResource(R.drawable.uparrow);
+			inningPart.setImageResource(R.drawable.inning_top);
 		}
 	}
 }

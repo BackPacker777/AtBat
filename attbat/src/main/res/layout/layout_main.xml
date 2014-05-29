@@ -141,7 +141,7 @@
 			android:textSize="28sp"
 			android:gravity="center_vertical|center_horizontal"
 			android:clickable="true"
-			android:onClick="subtractOut" android:layout_alignBottom="@+id/spinner" android:layout_alignLeft="@+id/opponentTeamName" android:layout_alignStart="@+id/opponentTeamName" android:layout_marginBottom="8dp"/>
+			android:onClick="subtractOut" android:layout_alignBottom="@+id/battingList" android:layout_alignLeft="@+id/opponentTeamName" android:layout_alignStart="@+id/opponentTeamName" android:layout_marginBottom="8dp"/>
 
 		<TextView
 			android:layout_width="40dp"
@@ -263,13 +263,16 @@
 		android:onClick="subtractOpponentScore"
 		android:clickable="true"/>
 
-	<Spinner
+	<!--<Spinner
 		android:layout_width="170dp"
 		android:layout_height="wrap_content"
-		android:entries="@array/players"
 		android:prompt="@string/spinnerLabel"
-		android:id="@+id/spinner"
-		android:layout_below="@+id/textView14" android:layout_alignParentLeft="true" android:layout_alignParentStart="true"/>
+		android:id="@+id/battingList"
+		android:layout_below="@+id/textView14"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentStart="true"/>-->
+	<!--android:entries="@array/players"-->
+
 
 	<TextView
 		android:layout_width="170dp"
@@ -327,5 +330,15 @@
 		android:gravity="center_vertical|center_horizontal"
 		android:typeface="monospace"
 		android:layout_alignTop="@+id/textView" android:layout_toRightOf="@+id/textView"/>
+
+	<ListView
+		android:layout_width="160dp"
+		android:layout_height="wrap_content"
+		android:background="@drawable/bg_key"
+		android:id="@+id/battingList"
+		android:layout_below="@+id/textView14"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentStart="true"
+		android:layout_alignBottom="@+id/linearLayout2"/>
 
 </RelativeLayout>

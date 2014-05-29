@@ -12,9 +12,27 @@
 		android:layout_width="80dp"
 		android:layout_height="80dp"
 		android:id="@+id/returnButton"
+		android:background="@drawable/undo"
 		android:layout_alignParentBottom="true"
+		android:layout_centerHorizontal="true"/>
+
+	<ListView
+		android:layout_width="wrap_content"
+		android:layout_height="300dp"
+		android:id="@+id/battingList"
+		android:layout_alignParentRight="true"
+		android:layout_alignParentEnd="true"
+		/>
+
+	<Button
+		style="?android:attr/buttonStyleSmall"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/rotateButton"
+		android:id="@+id/button"
+		android:layout_below="@+id/battingList"
 		android:layout_centerHorizontal="true"
-		android:layout_marginBottom="30dp"
-		android:background="@drawable/undo"/>
+		android:typeface="monospace"
+		android:textStyle="bold"/>
 
 </RelativeLayout>
