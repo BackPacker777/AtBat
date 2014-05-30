@@ -25,11 +25,12 @@ public class DefenseActivity extends Activity {
 		fieldPositions = (ListView) findViewById(R.id.battingList);
 		this.names = names;
 		setPositions();
-		setFieldPositions();
+//		setFieldPositions();
 		returnOnClick();
 	}
 
 	private void setPositions() {
+          positions = new ArrayList<String>();
 		positions.add("Catcher");
 		positions.add("Pitcher");
 		positions.add("Short Stop");
