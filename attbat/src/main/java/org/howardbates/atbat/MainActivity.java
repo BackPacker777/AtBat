@@ -33,7 +33,6 @@ public class MainActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.layout_menu_main, menu);
 		return true;
 	}
@@ -41,14 +40,20 @@ public class MainActivity extends Activity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		int id = item.getItemId();
-		if (id == R.id.action_settings) {
+		if (id == R.id.action_defense) {
+			Bundle b = new Bundle();
+			Intent intent = new Intent(MainActivity.this, DefenseActivity.class);
+			String[] passNames = new String[names.size()];
+			passNames = names.toArray(passNames);
+			b.putStringArray("array", passNames);
+			intent.putExtras(b);
+			startActivity(intent);
+			return true;
+		} else if (id == R.id.action_settings) {
 			startActivity(new Intent(this, SettingsActivity.class));
 			return true;
 		} else if (id == R.id.action_about) {
 			startActivity(new Intent(this, AboutActivity.class));
-			return true;
-		} else if (id == R.id.action_defense) {
-			startActivity(new Intent(this, DefenseActivity.class));
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
@@ -145,9 +150,7 @@ public class MainActivity extends Activity {
 
 	private void setListNames() {
 		listNames = new ArrayAdapter<String>(
-			this,
-			android.R.layout.simple_list_item_1,
-			names);
+			this, android.R.layout.simple_list_item_1, names);
 		battingList.setAdapter(listNames);
 		battingList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 		battingList.setOnItemClickListener(new AdapterView.OnItemClickListener() {

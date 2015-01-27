@@ -6,7 +6,7 @@
 	<item android:id="@+id/action_defense"
 	      android:orderInCategory="10"
 	      android:title="@string/defense_tab"
-	      app:showAsAction="always" />
+	      app:showAsAction="never" />
 
 	<item android:id="@+id/action_settings"
 	      android:orderInCategory="50"

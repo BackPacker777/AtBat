@@ -6,18 +6,17 @@
     <string name="action_about">About</string>
 
     <!-- Spinner -->
-    <string-array name="players">
-        <item>Alex</item>
-        <item>Kevin</item>
-        <item>Kenan</item>
-        <item>Tommy</item>
-        <item>Conner</item>
-        <item>Josiah</item>
-        <item>Kenneth</item>
-        <item>Alan</item>
-        <item>Jackson</item>
-        <item>Hayden</item>
-        <item>Gordon</item>
+    <string-array name="positions">
+		<item>Catcher</item>
+		<item>Pitcher</item>
+		<item>Short Stop</item>
+		<item>1st Base</item>
+		<item>2nd Base</item>
+		<item>3rd Base</item>
+		<item>Left Field</item>
+		<item>Center Left</item>
+		<item>Center Right</item>
+		<item>Right Field</item>
     </string-array>
 
     <!-- Layout -->
